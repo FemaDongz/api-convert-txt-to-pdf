@@ -1,0 +1,22 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "api/index.py",
+            "use": "@vercel/python",
+            "config": { "maxLambdaSize": "45mb" }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "api/index.py"
+        }
+    ],
+    "env": {
+        "FLASK_APP": "api.index:app",
+        "PYTHON_VERSION": "3.9" 
+        // Jika Anda menggunakan Python 3.9. Sesuaikan jika versi lain.
+        // Vercel mendukung beberapa versi Python.
+    }
+}
